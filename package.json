@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently --kill-others \"tsc -w\" \"nodemon js/app.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,23 @@
   "bugs": {
     "url": "https://github.com/hatzi249/SchoolAPI/issues"
   },
-  "homepage": "https://github.com/hatzi249/SchoolAPI#readme"
+  "homepage": "https://github.com/hatzi249/SchoolAPI#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mssql": "^6.2.1",
+    "concurrently": "^2.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
 }
